@@ -14,16 +14,14 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 func _physics_process(delta):
 	# Add the gravity.
 	velocity.y += gravity * delta
-	
 	# Handle jump.
 	if Input.is_action_just_pressed("fly"):
 		velocity.y = JUMP_VELOCITY * delta
-		
-	if velocity.y > 0: 
-		flappybird.rotation_degrees = 70
-	elif velocity.y == 0:
-		flappybird.rotation_degrees = 0
-	else:
+	if velocity.y < -50:
 		flappybird.rotation_degrees = -70
+	elif velocity.y > 200:
+		flappybird.rotation_degrees = 70
+	else:
+		flappybird.rotation_degrees = 0
 
 	move_and_slide()
