@@ -11,31 +11,25 @@
 [node name="Game" type="Node2D"]
 script = ExtResource("1_dcwhs")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="BackGround" type="ColorRect" parent="."]
 offset_right = 864.0
 offset_bottom = 937.0
 color = Color(0.557706, 0.935996, 0.945406, 1)
 
-[node name="PointUI" type="ColorRect" parent="."]
+[node name="PointUI" type="Label" parent="."]
 unique_name_in_owner = true
-offset_left = 363.0
+z_index = 3
+offset_left = 409.0
 offset_top = 9.0
-offset_right = 403.0
-offset_bottom = 49.0
-color = Color(1, 1, 1, 0)
-script = ExtResource("5_1x5cy")
-
-[node name="Label" type="Label" parent="PointUI"]
-layout_mode = 0
-offset_left = 46.0
-offset_right = 86.0
-offset_bottom = 69.0
+offset_right = 449.0
+offset_bottom = 92.0
 theme_override_colors/font_color = Color(0.854469, 0.374895, 0.298327, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 60
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
+script = ExtResource("5_1x5cy")
 
 [node name="Flappy" parent="." instance=ExtResource("1_23vhc")]
 position = Vector2(68, 393)

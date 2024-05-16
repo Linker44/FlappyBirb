@@ -17,11 +17,10 @@ func _physics_process(delta):
 	# Handle jump.
 	if Input.is_action_just_pressed("fly"):
 		velocity.y = JUMP_VELOCITY * delta
-	if velocity.y < -50:
+	if velocity.y < -70:
 		flappybird.rotation_degrees = -70
-	elif velocity.y > 200:
+	elif velocity.y > 300:
 		flappybird.rotation_degrees = 70
 	else:
 		flappybird.rotation_degrees = 0
-
 	move_and_slide()

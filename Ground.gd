@@ -4,4 +4,5 @@ signal gameover
 
 
 func _on_body_entered(body):
-	gameover.emit()
+	if body.name == 'Flappy':
+		gameover.emit()
