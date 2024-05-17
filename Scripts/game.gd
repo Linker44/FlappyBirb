@@ -1,7 +1,7 @@
 extends Node2D
 
-const X_OFFSET = 300
-const Y_OFFSET = 350
+const OFFSET = 300
+const GROUND_SPEED = 200
 
 @onready var pipe_spawn_timer = %PipeSpawnTimer
 @onready var ground = %Ground
@@ -13,7 +13,7 @@ func _ready():
 	spawn_pipe()
 
 func _process(delta):
-	ground.global_position.x -= 200 * delta
+	ground.global_position.x -= GROUND_SPEED * delta
 	if ground.global_position.x < 0:
 		ground.global_position.x = get_viewport_rect().size.x
 
@@ -22,7 +22,7 @@ func spawn_pipe():
 	pipe.gameover.connect(restart)
 	pipe.point.connect(new_point)
 	var viewport_size = get_viewport_rect().size
-	pipe.global_position = Vector2(viewport_size.x + X_OFFSET, randf_range(Y_OFFSET, viewport_size.y - Y_OFFSET))
+	pipe.global_position = Vector2(viewport_size.x + OFFSET, randf_range(OFFSET, viewport_size.y - OFFSET))
 	add_child(pipe)
 
 func restart():

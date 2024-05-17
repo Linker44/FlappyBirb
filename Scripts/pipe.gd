@@ -3,9 +3,10 @@ signal gameover
 signal point
 
 @onready var point_area = %PointArea
+const PIPE_SPEED = 200
 
 func _process(delta):
-	global_position.x -= 200 * delta
+	global_position.x -= PIPE_SPEED * delta
 	if global_position.x < 0:
 		queue_free()
 
