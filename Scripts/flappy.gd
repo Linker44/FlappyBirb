@@ -18,9 +18,9 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("fly"):
 		velocity.y = JUMP_VELOCITY * delta
 	if velocity.y < -70:
-		flappybird.rotation_degrees = -70
+		flappybird.rotation_degrees = lerp(flappybird.rotation_degrees, -60.0, 0.5)
 	elif velocity.y > 300:
-		flappybird.rotation_degrees = 70
+		flappybird.rotation_degrees = lerp(flappybird.rotation_degrees, 60.0, 0.5)
 	else:
-		flappybird.rotation_degrees = 0
+		flappybird.rotation_degrees = lerp(flappybird.rotation_degrees, 0.0, 0.5)
 	move_and_slide()

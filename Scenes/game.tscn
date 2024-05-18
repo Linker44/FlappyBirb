@@ -1,12 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://5j3y1liryoop"]
+[gd_scene load_steps=5 format=3 uid="uid://5j3y1liryoop"]
 
 [ext_resource type="PackedScene" uid="uid://cyphsaqnrmk37" path="res://Scenes/flappy.tscn" id="1_23vhc"]
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_dcwhs"]
-[ext_resource type="PackedScene" uid="uid://b2ieo77oktunm" path="res://Scenes/killzone.tscn" id="3_oer8p"]
 [ext_resource type="PackedScene" uid="uid://dikws3tnb5see" path="res://Scenes/ground.tscn" id="4_lhi5m"]
 [ext_resource type="Script" path="res://Scripts/points.gd" id="5_1x5cy"]
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_nti36"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_dcwhs")
@@ -33,12 +30,6 @@ script = ExtResource("5_1x5cy")
 
 [node name="Flappy" parent="." instance=ExtResource("1_23vhc")]
 position = Vector2(68, 393)
-
-[node name="Killzone" parent="." instance=ExtResource("3_oer8p")]
-position = Vector2(592, 659)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
-shape = SubResource("WorldBoundaryShape2D_nti36")
 
 [node name="DifficultyTimer" type="Timer" parent="."]
 wait_time = 5.224
