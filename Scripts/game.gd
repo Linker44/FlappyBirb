@@ -6,6 +6,7 @@ const GROUND_SPEED = 200
 @onready var pipe_spawn_timer = %PipeSpawnTimer
 @onready var ground = %Ground
 @onready var point_ui = %PointUI
+@export var pipe_scene: PackedScene
 
 func _ready():
 	ground.gameover.connect(restart)
@@ -18,7 +19,7 @@ func _process(delta):
 		ground.global_position.x = get_viewport_rect().size.x
 
 func spawn_pipe():
-	var pipe = preload("res://Scenes/pipe.tscn").instantiate()
+	var pipe = pipe_scene.instantiate()
 	pipe.gameover.connect(restart)
 	pipe.point.connect(new_point)
 	var viewport_size = get_viewport_rect().size
